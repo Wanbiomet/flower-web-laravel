@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('/fronted/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('/fronted/css/jquery-ui.min.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>@yield('title')</title>
 </head>
 
@@ -25,7 +26,7 @@
             </a>
             <form action="{{route('search')}}">
                 <div class="search-box">
-                    <input type="text" name="search" placeholder="Type something">
+                    <input type="text" name="search" placeholder="Nhập để tìm kiếm...">
                     <button type="submit">
                         <div class="search-btn">
                             <i class="fas fa-search"></i>
@@ -46,7 +47,7 @@
                 </div>
                 <form action=" {{route('search')}}">
                     <div class="search-box">
-                        <input type="text" name="search" placeholder="Type something">
+                        <input type="text" name="search" placeholder="Nhập để tìm kiếm...">
                         <button type="submit">
                             <div class="search-btn">
                                 <i class="fas fa-search"></i>
@@ -55,26 +56,25 @@
                     </div>
                 </form>
                 <ul class="nav__mobile-list">
-                    <li><a class="nav__mobile-link" href="#home">Home</a></li>
-                    <li><a class="nav__mobile-link" href="#">Occasion <i class='bx bx-chevron-right'></i></a>
+                    <li><a class="nav__mobile-link" href="http://flower-web.test/">Trang chủ</a></li>
+                    <li><a class="nav__mobile-link" href="#">Dịp <i class='bx bx-chevron-right'></i></a>
                         <ul class="nav__mobile-submenu ">
                             @foreach($occasions as $item)
                             <li> <a href="/filterby/{{$item['occasion_id']}}/occasion">{{$item['occasion_name']}}</a> </li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a class="nav__mobile-link" href="#">Object <i class='bx bx-chevron-right'></i></a>
+                    <li><a class="nav__mobile-link" href="#">Đối Tượng <i class='bx bx-chevron-right'></i></a>
                         <ul class="nav__mobile-submenu">
-                            <li> <a href="#">Lover</a> </li>
-                            <li> <a href="#">Friend</a> </li>
-                            <li> <a href="#">Wife</a> </li>
-                            <li> <a href="#">Husband</a> </li>
-                            <li> <a href="#">Mothers vs Dads </a> </li>
-                            <li> <a href="#">Boss</a> </li>
-                            <li> <a href="#">Colleague</a> </li>
+                            <li> <a href="#">Người yêu</a> </li>
+                            <li> <a href="#">Bạn bè</a> </li>
+                            <li> <a href="#">Vợ và chồng</a> </li>
+                            <li> <a href="#">Người thân</a> </li>
+                            <li> <a href="#">Sếp</a> </li>
+                            <li> <a href="#">Đồng nghiệp</a> </li>
                         </ul>
                     </li>
-                    <li><a class="nav__mobile-link" href="#">Flowers <i class='bx bx-chevron-right'></i></a>
+                    <li><a class="nav__mobile-link" href="#">Loại Hoa <i class='bx bx-chevron-right'></i></a>
                         <ul class="nav__mobile-submenu">
                             @foreach($flowertypes as $item)
                             <li> <a href="/filterby/{{$item['flowertype_id']}}/type">{{$item['flowertype_name']}}</a> </li>
@@ -98,17 +98,17 @@
                     <div class="menu">
                         <h3>{{auth()->user()->name}}</h3>
                         <ul>
-                            <li><a href="/show-order"><i class='bx bx-check-square'>my order</i></a> </li>
-                            <li><a href="/profile"><i class='bx bx-user-circle'>my profile</i></a> </li>
-                            <li><a href="/profile"><i class='bx bx-edit'>edit profile</i></a></li>
-                            <li><a href="/logout"><i class='bx bx-log-out-circle'>logout</i></a></li>
+                            <li><a href="/show-order"><i class='bx bx-check-square'>Đơn hàng</i></a> </li>
+                            <li><a href="/profile"><i class='bx bx-user-circle'>Thông tin cá nhân</i></a> </li>
+                            <li><a href="/profile"><i class='bx bx-edit'>Chỉnh sửa hồ sơ</i></a></li>
+                            <li><a href="/logout"><i class='bx bx-log-out-circle'>Đăng xuất</i></a></li>
                         </ul>
 
                     </div>
                 </div>
                 @else
                 <a class="action" href="/login">
-                    <div class="btn-auth">Login</div>
+                    <div class="btn-auth">Đăng nhập</div>
                 </a>
                 @endauth
             </div>
@@ -116,8 +116,8 @@
         <div class="head_search">
             <nav class="navbar">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#">Occasion</a>
+                    <li><a href="http://flower-web.test/">Trang chủ</a></li>
+                    <li><a href="#">Dịp</a>
                         <i class='bx bx-chevron-down arrow occasion-arrow'></i>
                         <ul>
                             @foreach($occasions as $item)
@@ -125,19 +125,18 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#">Object</a>
+                    <li><a href="#">Đối Tượng</a>
                         <i class='bx bx-chevron-down arrow object-arrow'></i>
                         <ul>
-                            <li> <a href="#">Lover</a> </li>
-                            <li> <a href="#">Friend</a> </li>
-                            <li> <a href="#">Wife</a> </li>
-                            <li> <a href="#">Husband</a> </li>
-                            <li> <a href="#">Mothers vs Dads</a> </li>
-                            <li> <a href="#">Boss</a> </li>
-                            <li> <a href="#">Colleague</a> </li>
+                            <li> <a href="#">Người yêu</a> </li>
+                            <li> <a href="#">Bạn bè</a> </li>
+                            <li> <a href="#">Vợ và chồng</a> </li>
+                            <li> <a href="#">Người thân</a> </li>
+                            <li> <a href="#">Sếp</a> </li>
+                            <li> <a href="#">Đồng nghiệp</a> </li>
                         </ul>
                     </li>
-                    <li><a href="#">Flowers</a>
+                    <li><a href="#">Loại Hoa</a>
                         <i class='bx bx-chevron-down arrow design-arrow'></i>
                         <ul>
                             @foreach($flowertypes as $item)
@@ -145,8 +144,8 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#review">Review</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#review">Giới thiệu</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
                 </ul>
 
             </nav>
@@ -156,32 +155,32 @@
     <section class="footer">
         <div class="box-container">
             <div class="box">
-                <h3>quick links</h3>
-                <a href="#">home</a>
-                <a href="#">about</a>
-                <a href="#">products</a>
-                <a href="#">review</a>
-                <a href="#">contact</a>
+                <h3>Truy cập nhanh</h3>
+                <a href="#">trang chủ</a>
+                <a href="#">Về chúng tôi</a>
+                <a href="#">Sản phẩm</a>
+                <a href="#">giới thiệu</a>
+                <a href="#">liên hệ</a>
             </div>
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#">my account</a>
-                <a href="#">my order</a>
-                <a href="#">my favorite</a>
+                <h3>Liên kết phụ</h3>
+                <a href="#">Tài khoản cá nhân</a>
+                <a href="#">Đơn hàng của tôi</a>
+                <a href="#">Danh mục yêu thích</a>
             </div>
             <div class="box">
-                <h3>locations</h3>
-                <a href="#">India</a>
-                <a href="#">USA</a>
-                <a href="#">Japan</a>
-                <a href="#">France</a>
+                <h3>Địa chỉ</h3>
+                <a href="#">Ý</a>
+                <a href="#">Mỹ</a>
+                <a href="#">Nhật bản</a>
+                <a href="#">Pháp</a>
             </div>
             <div class="box">
-                <h3>contact info</h3>
-                <a href="#">HOTLINE:+084369495084</a>
-                <a href="#">EMAIL:QuangHoaTuoi@gmail.com</a>
-                <a href="#">FACEBOOK:quanghoatuoishop</a>
-                <a href="#">ADDRESS:floor 81,LandMark 81, District Binh Thach, City Ho Chi Minh</a>
+                <h3>Thông tin liên hệ</h3>
+                <a href="#">HOTLINE: +084369495084</a>
+                <a href="#">EMAIL: QuangHoaTuoi@gmail.com</a>
+                <a href="#">FACEBOOK: quanghoatuoishop</a>
+                <a href="#">VĂN PHÒNG: Tầng 81,LandMark 81, District Binh Thach, City Ho Chi Minh</a>
                 <img src="{{asset('/fronted/images/payment.png')}}" alt="">
             </div>
         </div>
@@ -248,7 +247,7 @@
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('/fronted/js/jquery-ui.min.js')}}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script>
         function handlePlus(e) {
             e.target.parentElement.querySelector('#amount').value++;

@@ -19,46 +19,46 @@ if (!function_exists('currency_format')) {
         @csrf
         <div class="leftside">
             <div class="sendTo">
-                <h2>Recipient info</h2>
+                <h2>Thông tin người nhận</h2>
                 <div class="form-group">
-                    <label class="lb_text"><span>*</span> Recipient name</label>
-                    <input type="text" placeholder="Enter Your Username" name="fullname" id="fullname" rules="required" class="form-input" autocomplete="off">
+                    <label class="lb_text"><span>*</span> Họ tên người nhận</label>
+                    <input type="text" placeholder="Nhập họ tên" name="fullname" id="fullname" rules="required" class="form-input" autocomplete="off">
                     <span class="validate fullname_error"></span>
                 </div>
                 <div class="form-group">
-                    <label class="lb_text"><span>*</span> Recipient Phone</label>
-                    <input type="text" placeholder="Enter Your Phone" name="phone" id="phone" rules="required" class="form-input" autocomplete="off">
+                    <label class="lb_text"><span>*</span> Số điện thoại</label>
+                    <input type="text" placeholder="Nhập sđt" name="phone" id="phone" rules="required" class="form-input" autocomplete="off">
                     <span class="validate phone_error"></span>
                 </div>
                 <div class="form-group">
                     <label class="lb_text"><span>*</span> Email</label>
-                    <input type="text" placeholder="Enter Your Email" name="email" id="email" rules="required" class="form-input" autocomplete="off">
+                    <input type="text" placeholder="Nhập email" name="email" id="email" rules="required" class="form-input" autocomplete="off">
                     <span class="validate email_error"></span>
                 </div>
                 <div class="form-group">
-                    <label class="lb_text"><span>*</span> Address</label>
-                    <input type="text" placeholder="Enter Your Address" name="address" id="address" rules="required" class="form-input" autocomplete="off">
+                    <label class="lb_text"><span>*</span> Địa chỉ</label>
+                    <input type="text" placeholder="Nhập địa chỉ" name="address" id="address" rules="required" class="form-input" autocomplete="off">
                     <span class="validate address_error"></span>
                 </div>
             </div>
             <div class="dateRecipient">
-                <h2>Delivery time</h2>
+                <h2>Thời gian nhận hàng</h2>
                 <div class="form-group">
-                    <input type="text" style="margin-top: 0 !important;" class="form-input" id="datepicker" autocomplete="off" name="placeon">
+                    <input type="text" placeholder="Chọn thời gian nhận hàng" style="margin-top: 0 !important;" class="form-input" id="datepicker" autocomplete="off" name="placeon">
                     <span class="validate placeon_error"></span>
                 </div>
             </div>
             <h2 style="font-size: 20px;
     margin-bottom: 10px;
     color: var(--color-primary);
-    font-weight: 600;">Select payment method</h2>
+    font-weight: 600;">Chọn phương thức thanh toán</h2>
             <div class="payment_method">
                 <label class="payment_choose">
-                    <input type="radio" name="payments" value="1"><span>COD – Cash on delivery</span>
+                    <input type="radio" name="payments" value="1"><span>COD – Thanh toán tiền mặt</span>
                 </label>
-                <div class="payment_choose"><input type="radio" name="payments" value="2"><div style="display: flex;align-items: center;"><span>Pay with vnpay</span><img style="width:30px;height:30px;border-radius: 5px;margin-left: 10px;" src="{{asset('fronted/images/download-logo-vector-vnpay-mien-phi.jpg')}}" alt=""></div></div>
+                <div class="payment_choose"><input type="radio" name="payments" value="2"><div style="display: flex;align-items: center;"><span>Thanh toán VnPay</span><img style="width:30px;height:30px;border-radius: 5px;margin-left: 10px;" src="{{asset('fronted/images/download-logo-vector-vnpay-mien-phi.jpg')}}" alt=""></div></div>
             </div>
-            <button type="submit" class="btn_checkout">Check Out</button>
+            <button type="submit" class="btn_checkout">Thanh toán</button>
            
         </div>
         <div class="rightside">
@@ -78,7 +78,7 @@ if (!function_exists('currency_format')) {
             <div class="total_itemCart">
                 <table>
                     <tr>
-                        <td>Subtotal</td>
+                        <td>Tổng Tiền</td>
                         <td>{{currency_format($total,'đ')}}</td>
                     </tr>
                     <tr>

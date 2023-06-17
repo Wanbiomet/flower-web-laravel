@@ -14,15 +14,15 @@ if (!function_exists('currency_format')) {
 @section('content')
 <div class="small-container cart-page">
     @if($order->isNotEmpty())
-    <h1>Own Order</h1>
+    <h1>Đơn hàng của bạn</h1>
     <div id="appendCartItems">
         <table>
             <tr>
-                <th>Order Id</th>
-                <th>Order Date</th>
-                <th>Shipping Date</th>
-                <th>Total Product</th>
-                <th>Subtotal</th>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt hàng</th>
+                <th>Ngày giao hàng</th>
+                <th>Tổng sản phẩm</th>
+                <th>Tổng tiền</th>
             </tr>
             @foreach($order as $item)
             <tbody>
@@ -41,7 +41,7 @@ if (!function_exists('currency_format')) {
     </div>
     @else
     <h1 style="padding: 20px;
-    border: 1px solid;">You don't have any order yet</h1>
+    border: 1px solid;">Bạn chưa có đơn hàng nào!! Mua Ngay</h1>
     @endif
 </div>
 @endsection

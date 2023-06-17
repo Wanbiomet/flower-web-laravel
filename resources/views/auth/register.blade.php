@@ -3,44 +3,44 @@
 
 @section('content')
 <section class="auth-form" id="register">
-    <h1>REGISTER</h1>
+    <h1>Đăng ký</h1>
     <form action="" class="form" id="register-form">
         @csrf
         <div class="form-group">
-            <input type="text" placeholder="Enter Your Username" name="fullname" rules="required" class="form-input" autocomplete="off">
+            <input type="text" placeholder="Nhập họ tên" name="fullname" rules="required" class="form-input" autocomplete="off">
             <span class="validate fullname_error"></span>
         </div>
 
         <div class="form-group">
-            <input type="text" placeholder="Enter Your Email" name="email" rules="required|email" class="form-input" autocomplete="off">
+            <input type="text" placeholder="Nhập email" name="email" rules="required|email" class="form-input" autocomplete="off">
             <span class="validate email_error"></span>
         </div>
 
 
         <div class="form-group">
-            <input type="password" placeholder="Enter Your Password" name="password" rules="required|min:6" class="form-input" autocomplete="off">
+            <input type="password" placeholder="Nhập mật khẩu" name="password" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate password_error"></span>
         </div>
 
 
         <div class="form-group">
-            <input type="password" placeholder="Enter Your Comfirm Password" name="cpassword" rules="required|min:6" class="form-input" autocomplete="off">
+            <input type="password" placeholder="Nhập lại mật khẩu" name="cpassword" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate cpassword_error"></span>
         </div>
 
-        <button id="register_btn" type="submit">Register</button>
+        <button id="register_btn" type="submit">Đăng ký</button>
     </form>
-    <p class="form-footer">You have an account? <a class="btn-sign-in" href="/login">Sign In</a></p>
-    <a class="btnToHome" href="/">Return to Home</a>
+    <p class="form-footer">Đã có tài khoản??<a class="btn-sign-in" href="/login">Đăng Nhập</a></p>
+    <a class="btnToHome" href="/">Về Trang chủ</a>
 </section>
 
 @endsection
 
 
 @section('script')
-<script>
+<!-- <script>
     // var form = new Validator('#register-form');
-</script>
+</script> -->
 <script>
     $(function() {
         $("#register-form").submit(function(e) {

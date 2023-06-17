@@ -3,23 +3,23 @@
 
 @section('content')
 <section class="auth-form" id="reset">
-    <h1>RESET PASSWORD</h1>
+    <h1>Đổi Mật Khẩu</h1>
     <form action="" class="form" id="reset-form">
         @csrf
         <input type="hidden" name="email" value="{{$email}}">
         <input type="hidden" name="token" value="{{$token}}">
         <div class="form-group">
-            <input type="password" placeholder="Enter Your Password" name="npassword" rules="required|min:6" class="form-input" autocomplete="off">
+            <input type="password" placeholder="Nhập mật khẩu" name="npassword" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate password_error"></span>
         </div>
         <div class="form-group">
-            <input type="password" placeholder="Enter Your Comfirm Password" name="cpassword" rules="required|min:6" class="form-input" autocomplete="off">
+            <input type="password" placeholder="Nhập lại mật khẩu" name="cpassword" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate cpassword_error"></span>
         </div>
 
-        <button id="reset_btn" type="submit">Reset</button>
+        <button id="reset_btn" type="submit">Thay đổi mật khẩu</button>
     </form>
-    <a class="btnToHome" href="/login">Return to Login</a>
+    <a class="btnToHome" href="/login">Về đăng nhập</a>
 </section>
 @endsection
 

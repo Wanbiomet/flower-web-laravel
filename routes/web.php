@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\RatingController;
 use Illuminate\Http\Request;
 
 /*
@@ -59,7 +60,9 @@ Route::group(['middleware' => ['auth']], function () {
         Auth::logout();
         return redirect()->back();
     });
+    
 });
+Route::post('/add-rating', [RatingController::class, 'AddRating'])->name('addRating');
 //Cart
 Route::get('/cart', [CartController::class, 'index']);
 Route::post('/add-cart', [CartController::class, 'AddCart'])->name('addCart');

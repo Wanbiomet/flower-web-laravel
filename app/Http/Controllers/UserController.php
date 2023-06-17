@@ -18,12 +18,14 @@ use App\Models\Products;
 use App\Models\Occasion;
 use App\Models\FlowerType;
 use App\Models\Order;
+use App\Models\Ratings;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
     public function index()
     {
-        
+
         $occasions = Occasion::All();
         $flowertypes = FlowerType::All();
         return view('home.home', compact('occasions', 'flowertypes'));
@@ -194,18 +196,33 @@ class UserController extends Controller
     public function showDetail($id)
     {
         $data = Products::where('product_id', $id)->first();
-        $occasions = Occasion::All();
-        $flowertypes = FlowerType::All();
-        return view('home.details', compact('data','occasions','flowertypes'));
+        //API gợi ý sản phẩm
+        $client = new Client();
+        $response = $client->post('http://localhost:5000/recommendation', [
+            'json' => ['product-name' => $data->product_name]
+        ]);
+        $product_id_recommend = json_decode($response->getBody())->product_recommend;
+
+        // Hiện thị chi tiết sản phẩm
+        if ($product_id_recommend) {
+            $products_recommend = Products::whereIn('product_name', $product_id_recommend)->get();
+            $occasions = Occasion::All();
+            $flowertypes = FlowerType::All();
+            $ratings = Ratings::where('product_id', $id)->where('user_id', Auth::id())->latest('updated_at')->first();
+            return view('home.details', compact('data', 'occasions', 'flowertypes', 'ratings', 'products_recommend'));
+        } else {
+            $occasions = Occasion::All();
+            $flowertypes = FlowerType::All();
+            $ratings = Ratings::where('product_id', $id)->where('user_id', Auth::id())->latest('updated_at')->first();
+            return view('home.details', compact('data', 'occasions', 'flowertypes', 'ratings'));
+        }
     }
     //ShowOrder
     public function showOrder()
     {
-        $order = Order::where('user_id',Auth::id())->get();
+        $order = Order::where('user_id', Auth::id())->get();
         $occasions = Occasion::All();
         $flowertypes = FlowerType::All();
-        return view('home.showOrder',compact('order','occasions','flowertypes'));
+        return view('home.showOrder', compact('order', 'occasions', 'flowertypes'));
     }
-   
-
 }

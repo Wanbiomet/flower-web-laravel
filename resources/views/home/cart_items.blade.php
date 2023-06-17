@@ -11,9 +11,9 @@ if (!function_exists('currency_format')) {
 ?>
 <table>
 		<tr>
-			<th>Products</th>
-			<th>Quantity</th>
-			<th>Subtotal</th>
+			<th>Sản phẩm</th>
+			<th>Số lượng</th>
+			<th>Tổng</th>
 		</tr>
 		
 		@php $total = 0 @endphp
@@ -27,7 +27,7 @@ if (!function_exists('currency_format')) {
 						<p>{{$item->products->product_name}}</p>
 						<small>{{currency_format($item->products->product_price)}}</small>
 						<br>
-						<a class="delete-btn" id="delete-btn" >Remove</a>
+						<a class="delete-btn" id="delete-btn" >Xóa</a>
 					</div>
 				</div>
 			</td>
@@ -62,6 +62,6 @@ if (!function_exists('currency_format')) {
 		</table>
 	</div>
     <div class="btn_checkout_buy">
-		<div class="buyContinue"><a href="/search">Continue to Shopping</a></div>
-		<div class="proccesCheckout"><a href="/checkout">Proceed to Checkout</a></div>
+		<div class="buyContinue"><a href="/search">Tiếp tục mua hàng</a></div>
+		<div class="proccesCheckout"><a href="/checkout">Thanh toán</a></div>
 	</div>

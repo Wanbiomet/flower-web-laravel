@@ -3,17 +3,17 @@
 
 @section('content')
 <section class="auth-form" id="forget">
-    <h1>FORGET PASSWORD</h1>
+    <h1>Quên Mật Khẩu</h1>
     <form action="" class="form" id="forget-form">
         @csrf
-        <h2 style="font-weight: 400;">Please enter your email address. You will receive a link to create a new password</h2>
+        <h2 style="font-weight: 400;">Làm ơn nhập địa chỉ email để nhận link đổi mật khẩu.</h2>
         <div class="form-group">
-            <input type="text" placeholder="Enter Your Email" name="email" rules="required|email" class="form-input" autocomplete="off">
+            <input type="text" placeholder="Nhập email" name="email" rules="required|email" class="form-input" autocomplete="off">
             <span class="validate email_error"></span>
         </div>
-        <button type="submit" id="forgetpass_btn">Send Email</button>
+        <button type="submit" id="forgetpass_btn">Gửi</button>
     </form>
-    <a class="btnToHome" href="/login">Return to Login</a>
+    <a class="btnToHome" href="/login">Về đăng nhập</a>
 </section>
 @endsection
 

@@ -3,16 +3,14 @@
 
 @section('content')
 <div class="small-container cart-page">
-	<h1>SHOPPING CART</h1>
+	<h1>GIỎ HÀNG</h1>
 	@if($cartitem->isNotEmpty())
 	<div id="appendCartItems">
 		@include('home.cart_items')
-
 	</div>
 	@else
-	<h1 style="text-align: center; font-size:20px;color:pink;">Nothing in cart</h1>
-	<div class="buyContinue"><a href="/search">Continue to Shopping</a></div>
-
+	<h1 style="text-align: center; font-size:20px;color:pink;">Chưa có sản phẩm nào</h1>
+	<div class="buyContinue"><a href="/search">Tiếp tục mua hàng</a></div>
 	@endif
 </div>
 @endsection

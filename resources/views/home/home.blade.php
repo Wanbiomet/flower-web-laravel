@@ -6,10 +6,10 @@
 
 <section class="home" id="home">
         <div class="content">
-            <h3>Fresh flowers</h3>
-            <span>natural & beautiful flowers</span>
-            <p>Buy cheap flowers online and Fast delivery </p>
-            <a href="#" class="btn">buy now</a>
+            <h3>Hoa Tươi</h3>
+            <span>Các loài hoa đẹp từ thiên nhiên</span>
+            <p>Mua hoa giá rẻ và thời gian vận chuyển nhanh</p>
+            <a href="#" class="btn-home">mua ngay</a>
         </div>
 
         <div class="slide">
@@ -26,22 +26,22 @@
 
     <!-- about us -->
     <section class="about" id="about">
-        <h1 class="heading"> <span> about </span> us </h1>
+        <h1 class="heading"> <span> Về </span> chúng tôi!! </h1>
 
         <div class="row">
             <div class="video-container">
                 <video src="{{asset('fronted/images/about-vid.mp4')}}" loop autoplay muted></video>
-                <h3>best flower sellers</h3>
+                <h3>Hoa bán chạy nhất</h3>
             </div>
 
             <div class="content">
-                <h3>Why choose us?</h3>
+                <h3>Tại sao lại chọn chúng tôi??</h3>
                 <p>
-                    Hoathuongyeu thanks customers for trusting and accompanying us during the past time. Hoathuongyeu
-                    received and sent flowers nationwide. You can order on the web or chat with us, me via zalo or chat
-                    box on the right corner of the website for more specific advice.
+                    Hoathuongyeu cảm ơn quý khách hàng đã tin tưởng và đồng hành cùng chúng tôi trong suốt thời gian qua. Hoathuongyeu
+                    nhận và gửi hoa trên toàn quốc. Bạn có thể đặt hàng trên web hoặc chat với chúng tôi qua zalo hoặc chat
+                    bên góc phải website để được tư vấn cụ thể hơn.
                 </p>
-                <a href="#" class="btn">Learn more</a>
+                <a href="#" class="btn-home">Tìm hiểu</a>
             </div>
         </div>
     </section>
@@ -52,29 +52,29 @@
         <div class="icons">
             <img src="{{asset('fronted/images/icon-1.png')}}" alt="">
             <div class="info">
-                <h3>free delivery</h3>
-                <span>on all orders</span>
+                <h3>Miễn phí vận chuyển</h3>
+                <span>cho mọi mặt hàng</span>
             </div>
         </div>
         <div class="icons">
             <img src="{{asset('fronted/images/icon-2.png')}}" alt="">
             <div class="info">
-                <h3>10 days returns</h3>
-                <span>moneyback guarantee</span>
+                <h3>10 ngày hoàn trả</h3>
+                <span>đảm bảo hoàn lại tiền 100%</span>
             </div>
         </div>
         <div class="icons">
             <img src="{{asset('fronted/images/icon-3.png')}}" alt="">
             <div class="info">
-                <h3>offer & gifts</h3>
-                <span>on all orders</span>
+                <h3>Nhiều ưu đãi và quà tặng</h3>
+                <span>cho mọi mặt hàng</span>
             </div>
         </div>
         <div class="icons">
             <img src="{{asset('fronted/images/icon-4.png')}}" alt="">
             <div class="info">
-                <h3>secure payment</h3>
-                <span>protected by paypal</span>
+                <h3>Thanh toán an toàn</h3>
+                <span>được bảo vệ bởi VnPay</span>
             </div>
         </div>
     </section>
@@ -82,7 +82,7 @@
 
     <!-- products section -->
     <section class="products" id="product">
-        <h1 class="heading"> latest <span>products</span></h1>
+        <h1 class="heading"> Sản phẩm <span>Mới nhất</span></h1>
 
         <div class="box-container">
             <div class="box">
@@ -91,12 +91,12 @@
                     <img src="{{asset('fronted/images/img-1.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -106,12 +106,12 @@
                     <img src="{{asset('fronted/images/img-2.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -121,12 +121,12 @@
                     <img src="{{asset('fronted/images/img-3.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -136,12 +136,12 @@
                     <img src="{{asset('fronted/images/img-4.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -151,12 +151,12 @@
                     <img src="{{asset('fronted/images/img-5.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -166,12 +166,12 @@
                     <img src="{{asset('fronted/images/img-6.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -181,12 +181,12 @@
                     <img src="{{asset('fronted/images/img-7.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -196,12 +196,12 @@
                     <img src="{{asset('fronted/images/img-8.jpg')}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
+                    <h3>Chậu hoa</h3>
                     <div class="price"> $12.99 <span>$15.9</span></div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                 <input type="email" placeholder="email" class="box">
                 <input type="number" placeholder="number" class="box">
                 <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="Send message" class="btn">
+                <input type="submit" value="Send message" class="btn-home">
             </form>
 
             <div class="image">

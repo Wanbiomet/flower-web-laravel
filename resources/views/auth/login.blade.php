@@ -3,25 +3,25 @@
 
 @section('content')
 <section class="auth-form" id="login">
-    <h1>LOGIN</h1>
+    <h1>Đăng nhập</h1>
     <form action="" class="form" id="login-form">
         @csrf 
         <div class="form-group">
-            <input type="text" placeholder="Enter Your Email" name="email" rules="required|email" class="form-input" autocomplete="off">
+            <input type="text" placeholder="Nhập email" name="email" rules="required|email" class="form-input" autocomplete="off">
             <span class="validate email_error"></span>
         </div>
 
 
         <div class="form-group">
-            <input type="password" placeholder="Enter Your Password" name="password" rules="required|min:6" class="form-input" autocomplete="off">
+            <input type="password" placeholder="Nhập mật khẩu" name="password" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate password_error"></span>
         </div>
 
-        <p class="forgetpass"><a href="/forgetpass">Forget password???</a></p>
-        <button type="submit" id="login_btn">Login</button>
+        <p class="forgetpass"><a href="/forgetpass">quên mật khẩu???</a></p>
+        <button type="submit" id="login_btn">Đăng nhập</button>
     </form>
 
-    <p>or login with</p>
+    <p>hoặc đăng nhập bằng</p>
     <div class="social">
         <button>
             <i class='bx bxl-facebook-square face'></i>Facebook
@@ -30,8 +30,8 @@
             <i class='bx bxl-google google'></i>Google
         </button>
     </div>
-    <p class="form-footer">Not a member?? <a class="btn-sign-up" href="/register">Sign Up</a></p>
-    <a class="btnToHome" href="#">Return to Home</a>
+    <p class="form-footer">Chưa đăng ký thành viên??<a class="btn-sign-up" href="/register">Đăng ký</a></p>
+    <a class="btnToHome" href="/">Về Trang chủ</a>
 </section>
 @endsection
 
