@@ -103,7 +103,6 @@
                             <li><a href="/profile"><i class='bx bx-edit'>Chỉnh sửa hồ sơ</i></a></li>
                             <li><a href="/logout"><i class='bx bx-log-out-circle'>Đăng xuất</i></a></li>
                         </ul>
-
                     </div>
                 </div>
                 @else
@@ -147,7 +146,6 @@
                     <li><a href="#review">Giới thiệu</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
                 </ul>
-
             </nav>
         </div>
     </header>
@@ -259,9 +257,5 @@
     </script>
     @yield('script')
 </body>
-
-
-
-
 
 </html>

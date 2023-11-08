@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\FlowerType;
 use App\Models\Occasion;
+use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -91,5 +92,12 @@ class DashboardController extends Controller
     {
         $customer = User::all();
         return view('admin.customer.showForm',compact('customer'));
+    }
+
+    //Flower
+    public function showFlower()
+    {
+        $products = Products::All();
+        return view('admin.products.showForm',compact('products'));
     }
 }

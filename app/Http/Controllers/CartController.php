@@ -38,7 +38,6 @@ class CartController extends Controller
             }
             else{
                 return response()->json(['status'=>403, 'msg'=>'Login to Continue']);
-        
             }
         }
     }

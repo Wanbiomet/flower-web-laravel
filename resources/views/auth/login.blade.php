@@ -10,8 +10,6 @@
             <input type="text" placeholder="Nhập email" name="email" rules="required|email" class="form-input" autocomplete="off">
             <span class="validate email_error"></span>
         </div>
-
-
         <div class="form-group">
             <input type="password" placeholder="Nhập mật khẩu" name="password" rules="required|min:6" class="form-input" autocomplete="off">
             <span class="validate password_error"></span>

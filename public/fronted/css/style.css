@@ -8,7 +8,7 @@
     --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
-    --color-info-light: #dce1eb;
+    --color-info-light: rgb(220, 225, 235);
     --color-dark: #363949;
     --color-light: rgba(125, 130, 164, 0.18);
     --color-primary-variant: #111e88;
@@ -232,7 +232,6 @@ header {
     background: #fff;
     padding: 0 5%;
     height: 7rem;
-    align-items: center;
 }
 .head_search {
     background: rgb(238, 227, 227);

@@ -197,12 +197,12 @@ class UserController extends Controller
     {
         $data = Products::where('product_id', $id)->first();
         //API gợi ý sản phẩm
-        $client = new Client();
-        $response = $client->post('http://localhost:5000/recommendation', [
-            'json' => ['product-name' => $data->product_name]
-        ]);
-        $product_id_recommend = json_decode($response->getBody())->product_recommend;
-
+        // $client = new Client();
+        // $response = $client->post('http://localhost:5000/recommendation', [
+        //     'json' => ['product-name' => $data->product_name]
+        // ]);
+        // $product_id_recommend = json_decode($response->getBody())->product_recommend;
+        $product_id_recommend = [];
         // Hiện thị chi tiết sản phẩm
         if ($product_id_recommend) {
             $products_recommend = Products::whereIn('product_name', $product_id_recommend)->get();
