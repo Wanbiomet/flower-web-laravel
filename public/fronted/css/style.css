@@ -134,7 +134,35 @@ aside {
     width: 200px;
     background: var(--color-background);
 }
+/* Pagination */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
 
+.pagination > li {
+    margin: 0 5px;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.pagination > li > a {
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination > li.active {
+    background-color: #333;
+    color: #fff;
+}
 aside .close {
     display: none;
 }

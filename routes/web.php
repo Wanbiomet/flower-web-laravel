@@ -51,7 +51,13 @@ Route::group(['middleware' => ['authAdmin']], function () {
         Route::post('/add-flowertype', [DashboardController::class, 'addFlowertype'])->name('flowertype.add');
         Route::get('/delete-flowertype/{id}', [DashboardController::class, 'deleteFlowertype']);
         Route::get('/show-flowertype', [DashboardController::class, 'showFlowerType']);
-
+        //Products
+        Route::get('/show-products', [DashboardController::class, 'showFlower']);
+        Route::post('/add-products', [DashboardController::class, 'addFlower']);
+        Route::get('/add-products', [DashboardController::class, 'addFlower']);
+        Route::post('/edit-products', [DashboardController::class, 'updateFlower']);
+        Route::get('/edit-products/{id}', [DashboardController::class, 'editFlower']);
+        Route::post('/delete-products', [DashboardController::class, 'deleteFlower']);
     });
 });
 Route::group(['middleware' => ['auth']], function () {

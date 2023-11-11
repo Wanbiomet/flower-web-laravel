@@ -10,6 +10,7 @@ class FlowerType extends Model
 {
     use HasFactory;
     protected $table = "flowertype";
+    protected $primaryKey = 'flowertype_id';
     protected $fillable = [
         'flowertype_name',
     ];

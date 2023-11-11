@@ -11,8 +11,11 @@ class Products extends Model
 {
     use HasFactory;
     protected $table = "products";
+    protected $primaryKey = 'product_id';
     protected $fillable = [
         'product_name',
+        'occasion_id',
+        'flowertype_id',
         'product_desc',
         'product_price',
         'product_design',
@@ -20,11 +23,11 @@ class Products extends Model
     ];
     public function occasions()
     {
-        return $this->belongsTo(Occasion::class);
+        return $this->belongsTo(Occasion::class, 'occasion_id')->withDefault();
     }
     public function flowertypes()
     {
-        return $this->belongsTo(FlowerType::class);
+        return $this->belongsTo(FlowerType::class, 'flowertype_id')->withDefault();
     }
     public function users(){
         return $this->belongsToMany(User::class,'carts','user_id','product_id');

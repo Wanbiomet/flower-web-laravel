@@ -305,7 +305,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Customer</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="/admin/customer/show-customer">Show Customer</a></li>
+                                <li><a href="/admin/customer/show-customer">Show Customers</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class='bx bxs-user'></i>
+                                <span>Flower</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="/admin/show-products">Show Flowers</a></li>
+                                <li><a href="/admin/add-products">Add new Flower</a></li>
+                                
                             </ul>
                         </li>
                     </ul>

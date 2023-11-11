@@ -10,6 +10,7 @@ class Occasion extends Model
 {
     use HasFactory;
     protected $table = "occasions";
+    protected $primaryKey = 'occasion_id';
     protected $fillable = [
         'occasion_name',
     ];
