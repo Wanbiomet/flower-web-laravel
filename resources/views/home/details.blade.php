@@ -55,7 +55,14 @@ if (!function_exists('currency_format')) {
             <input type="hidden" value="{{$data->product_id}}" name="proId">
             <div class="left_content">
                 <div class="img_detail">
-                    <img src="{{$data['product_img']}}" alt="">
+                    @if (filter_var($item->product_img, FILTER_VALIDATE_URL))
+                    <!-- Nếu đây là một đường dẫn URL -->
+                    <img src="{{$data['product_img']}}">
+                    @else
+                    <!-- Nếu không, đây là một đường dẫn trong thư mục /images -->
+                    <img src="/images/{{$data['product_img']}}">
+                    @endif
+
                 </div>
             </div>
             <div class="right_content">
@@ -71,9 +78,7 @@ if (!function_exists('currency_format')) {
                         }
 
                         @endphp
-                        <li style="cursor:pointer; {{$color}} font-size:25px;">
-                            &#9733;
-                        </li>
+
                         @endfor
                         @else
                         @for($count=1; $count<=5; $count++) <li style="cursor:pointer; color:#7d8da1; font-size:25px;">
@@ -84,7 +89,7 @@ if (!function_exists('currency_format')) {
                 </ul>
                 @endauth
 
-                <div class="price">{{currency_format($data['product_price'])}}<span>{{currency_format(900000)}}</span></div>
+                <div class="price">{{currency_format($data['product_price'])}}</div>
                 <div class="desp-product">
                     Lấy cảm hứng từ bộ phim tình cảm , mẫu hoa cùng tên mang đến thông điệp ý nghĩa về sức
                     mạnh của tình yêu và cách mà tình yêu làm thay đổi mỗi người. Tặng bó hoa “Me before you’ cho một
@@ -160,7 +165,7 @@ if (!function_exists('currency_format')) {
                 <input type="hidden" value="{{$item->product_id}}" name="proId">
                 <input type="hidden" value="1" name="amount">
                 <div class="data_item">
-                    <span class="discount">-10%</span>
+                    <span class="discount"></span>
                     <div class="image">
                         <img src="{{$item->product_img}}" alt="">
                         <div class="icons">

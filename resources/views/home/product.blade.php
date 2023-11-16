@@ -18,9 +18,14 @@ if (!function_exists('currency_format')) {
             <input type="hidden" value="{{$item->product_id}}" name="proId">
             <input type="hidden" value="1" name="amount">
             <div class="data_item">
-                <span class="discount">-10%</span>
                 <div class="image">
-                    <img src="{{$item->product_img}}" alt="">
+                    @if (filter_var($item->product_img, FILTER_VALIDATE_URL))
+                    <!-- Nếu đây là một đường dẫn URL -->
+                    <img src="{{$item->product_img}}">
+                    @else
+                    <!-- Nếu không, đây là một đường dẫn trong thư mục /images -->
+                    <img src="/images/{{$item->product_img}}">
+                    @endif
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
                         <button type="submit" class="cart-btn">Add to cart</button>
@@ -29,7 +34,7 @@ if (!function_exists('currency_format')) {
                 </div>
                 <div class="content">
                     <h3>{{$item->product_name}}</h3>
-                    <div class="price"> {{currency_format($item->product_price)}} <span>{{currency_format(15.9,'$')}}</span></div>
+                    <div class="price"> {{currency_format($item->product_price)}} </div>
                 </div>
             </div>
         </form>

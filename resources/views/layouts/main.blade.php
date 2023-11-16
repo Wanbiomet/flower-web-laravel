@@ -19,7 +19,7 @@
         <div class="mid_header">
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
-            <a href="/" class="logo">QHoaTuoi
+            <a href="/" class="logo">HoaTuoi
                 <div class="circle">
                     <img src="{{asset('/fronted/images/icon_hoa.png')}}" class="logo_icon" alt="">
                 </div>
@@ -41,7 +41,7 @@
                 <div class="nav__mobile-info">
                     <div class="nav__mobile-user">
                         <i class="fa-sharp fa-solid fa-user-tie"></i>
-                        <h1>Quang Nguyen</h1>
+                        <h1>LAM TUAN KEIT</h1>
                     </div>
                     <label for="toggler" class="nav__mobile-close"><i class="fas fa-times"></i></label>
                 </div>
@@ -176,13 +176,13 @@
             <div class="box">
                 <h3>Thông tin liên hệ</h3>
                 <a href="#">HOTLINE: +084369495084</a>
-                <a href="#">EMAIL: QuangHoaTuoi@gmail.com</a>
-                <a href="#">FACEBOOK: quanghoatuoishop</a>
+                <a href="#">EMAIL: HoaTuoi@gmail.com</a>
+                <a href="#">FACEBOOK: Hoatuoishop</a>
                 <a href="#">VĂN PHÒNG: Tầng 81,LandMark 81, District Binh Thach, City Ho Chi Minh</a>
                 <img src="{{asset('/fronted/images/payment.png')}}" alt="">
             </div>
         </div>
-        <div class="credit"> created by <span> CTY TNHH MTV QUANG HOA TUOI</span> </div>
+        <div class="credit"> created by <span> CTY TNHH MTV HOA TUOI</span> </div>
         <button onclick="topFunction()" id="myBtn"><i class='bx bxs-chevrons-up'></i></button>
     </section>
     <script src="{{asset('/fronted/js/app.js')}}"></script>

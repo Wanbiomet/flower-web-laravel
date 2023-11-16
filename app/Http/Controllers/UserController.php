@@ -27,8 +27,10 @@ class UserController extends Controller
     {
 
         $occasions = Occasion::All();
+        $products = Products::all();
         $flowertypes = FlowerType::All();
-        return view('home.home', compact('occasions', 'flowertypes'));
+        $products = Products::orderBy('created_at', 'desc')->take(4)->get();
+        return view('home.home', compact('occasions', 'flowertypes', 'products'));
     }
     //Register
     public function register()

@@ -56,17 +56,26 @@ if (!function_exists('currency_format')) {
                 <label class="payment_choose">
                     <input type="radio" name="payments" value="1"><span>COD – Thanh toán tiền mặt</span>
                 </label>
-                <div class="payment_choose"><input type="radio" name="payments" value="2"><div style="display: flex;align-items: center;"><span>Thanh toán VnPay</span><img style="width:30px;height:30px;border-radius: 5px;margin-left: 10px;" src="{{asset('fronted/images/download-logo-vector-vnpay-mien-phi.jpg')}}" alt=""></div></div>
+                <div class="payment_choose"><input type="radio" name="payments" value="2">
+                    <div style="display: flex;align-items: center;"><span>Thanh toán VnPay</span><img style="width:30px;height:30px;border-radius: 5px;margin-left: 10px;" src="{{asset('fronted/images/download-logo-vector-vnpay-mien-phi.jpg')}}" alt=""></div>
+                </div>
             </div>
             <button type="submit" class="btn_checkout">Thanh toán</button>
-           
+
+
         </div>
         <div class="rightside">
             @php $total = 0 @endphp
             @php $total_qty = 0 @endphp
             @foreach($carts as $item)
             <div class="itemCart">
-                <img src="{{$item->products->product_img}}" alt="">
+                @if (filter_var($item->product_img, FILTER_VALIDATE_URL))
+                <!-- Nếu đây là một đường dẫn URL -->
+                <img src="{{$item->products->product_img}}">
+                @else
+                <!-- Nếu không, đây là một đường dẫn trong thư mục /images -->
+                <img src="/images/{{$item->products->product_img}}">
+                @endif
                 <span>{{$item->products->product_name}}</span>
                 <p>{{$item->cart_qty}}*{{currency_format($item->products->product_price)}}</p>
             </div>
@@ -105,40 +114,40 @@ if (!function_exists('currency_format')) {
         })
     })
     $(function() {
-        // $("#checkoutForm").submit(function(e) {
-        //     e.preventDefault();
-        //     $.ajax({
-        //         url: '{{route("placeOn")}}',
-        //         method: 'post',
-        //         data: $(this).serialize(),
-        //         dataType: 'json',
-        //         beforeSend: function() {
-        //             $(document).find('span.validate').text('');
-        //         },
-        //         success: function(res) {
-        //             if (res.status == 400) {
-        //                 $.each(res.msg, function(prefix, val) {
-        //                     $('span.' + prefix + '_error').text(val[0]);
-        //                 });
-        //             }
-        //             if (res.status == 200) {
-        //                 Swal.fire({
-        //                     position: 'center',
-        //                     icon: 'success',
-        //                     title: res.msg,
-        //                     showConfirmButton: true,
-        //                     timer: 1500,
-        //                     confirmButtonText: 'OK'
-        //                 })
-        //                 window.location.reload()
-        //             }
-        //             if (res.status == 201) {
-        //                 console.log(res.msg)
-        //                 window.location.href = "/vnpay";
-        //             }
-        //         }
-        //     })
-        // })
+        $("#checkoutForm").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '{{route("placeOn")}}',
+                method: 'post',
+                data: $(this).serialize(),
+                dataType: 'json',
+                beforeSend: function() {
+                    $(document).find('span.validate').text('');
+                },
+                success: function(res) {
+                    if (res.status == 400) {
+                        $.each(res.msg, function(prefix, val) {
+                            $('span.' + prefix + '_error').text(val[0]);
+                        });
+                    }
+                    if (res.status == 200) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: res.msg,
+                            showConfirmButton: true,
+                            timer: 1500,
+                            confirmButtonText: 'OK'
+                        })
+                        window.location.reload()
+                    }
+                    if (res.status == 201) {
+                        console.log(res.msg)
+                        window.location.href = "/vnpay";
+                    }
+                }
+            })
+        })
 
 
     });

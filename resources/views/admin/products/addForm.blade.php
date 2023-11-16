@@ -1,6 +1,19 @@
 @extends('layouts.admin_layout')
 
 @section('content_admin')
+<?php
+if (!function_exists('currency_format')) {
+
+    function currency_format($number, $suffix = 'VNĐ')
+    {
+        if (!empty($number)) {
+            return number_format($number, 0, ',', '.') . "{$suffix}";
+        }
+    }
+}
+
+
+?>
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -17,31 +30,31 @@
                         </div>
                         <div class="form-group">
                             <label for="">Occasion</label>
-                            <select name="occasion">
+                            <select name="occasion" class="form-control">
                                 @foreach($occasions as $occasion)
-                                    <option value="{{ $occasion->occasion_id }}">{{ $occasion->occasion_name }}</option>
+                                <option value="{{ $occasion->occasion_id }}">{{ $occasion->occasion_name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Flower Type</label>
-                            <select name="flowertype">
+                            <select name="flowertype" class="form-control">
                                 @foreach($flowertypes as $flowertype)
-                                    <option value="{{ $flowertype->flowertype_id }}">{{ $flowertype->flowertype_name }}</option>
+                                <option value="{{ $flowertype->flowertype_id }}">{{ $flowertype->flowertype_name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
-                            <input type="file" name="image">
+                            <input type="file" name="image" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Price</label>
-                            <input type="number" step="0.01" id="price" name="price">
+                            <input type="text" id="price" name="price" class="form-control" oninput="formatCurrency(this)">
                         </div>
                         <div class="form-group">
                             <label for="">Design</label>
-                            <input type="text" name="design">
+                            <input type="text" name="design" class="form-control">
                         </div>
                         <!-- <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
@@ -66,7 +79,11 @@
             });
             $("#add-form").submit(function(e) {
                 e.preventDefault()
+                let priceDecimal = getDecimalValue(document.getElementById('price'));
+
                 let formData = new FormData(this);
+                formData.set('price', priceDecimal);
+
                 $.ajax({
                     url: '/admin/add-products',
                     type: 'post',
@@ -98,5 +115,35 @@
                 })
             })
         })
+
+        function formatCurrency(input) {
+            // Lấy giá trị từ input
+            let value = input.value;
+
+            // Kiểm tra giá trị không phải là rỗng
+            if (value.trim() !== "") {
+                // Loại bỏ các dấu ',' và '.' khỏi giá trị
+                value = value.replace(/[,\.]/g, '');
+
+                // Chuyển đổi giá trị thành số
+                let numericValue = parseFloat(value);
+
+                // Sử dụng hàm toLocaleString để định dạng giá trị và gán lại vào input
+                input.value = numericValue.toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
+                });
+
+                // Lưu giá trị dạng decimal trong thuộc tính data-decimal
+                input.dataset.decimal = numericValue;
+            }
+        }
+
+        // Sử dụng hàm này khi bạn muốn lấy giá trị dưới dạng decimal để post
+        function getDecimalValue(input) {
+            return parseFloat(input.dataset.decimal);
+        }
     </script>
     @endsection

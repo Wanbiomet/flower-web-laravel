@@ -18,23 +18,27 @@
                         </div>
                         <div class="form-group">
                             <label for="">Occasion</label>
-                            <select name="occasion">
+                            <select name="occasion" class="form-control">
                                 @foreach($occasions as $occasion)
-                                    <option value="{{ $occasion->occasion_id }}" @if($occasion->occasion_id === $product->occasion_id) selected @endif>{{ $product->occasions->occasion_name }}</option>
+                                <option value="{{ $occasion->occasion_id }}" @if($occasion->occasion_id === $product->occasion_id) selected @endif>
+                                    {{ $occasion->occasion_name }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Flower Type</label>
-                            <select name="flowertype">
+                            <select name="flowertype" class="form-control">
                                 @foreach($flowertypes as $flowertype)
-                                    <option value="{{ $flowertype->flowertype_id }}" @if($flowertype->flowertype_id === $product->flowertype_id) selected @endif>{{ $product->flowertypes->flowertype_name }}</option>
+                                <option value="{{ $flowertype->flowertype_id }}" @if($flowertype->flowertype_id === $product->flowertype_id) selected @endif>
+                                    {{ $flowertype->flowertype_name }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
-                            <input type="file" name="image">
+                            <input type="file" name="image" class="form-control">
                             @if (filter_var($product->product_img, FILTER_VALIDATE_URL))
                             <!-- Nếu đây là một đường dẫn URL -->
                             <img src="{{$product->product_img}}" style="height: 80px; width: 80px; border-radius: 50%;">
@@ -45,11 +49,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Price</label>
-                            <input type="number" step="0.01" id="price" name="price" value="{{$product->product_price}}">
+                            <input type="text" id="price" name="price" value="{{$product->product_price}}" class="form-control" oninput="formatCurrency(this)" onblur="formatPrice()">
                         </div>
                         <div class="form-group">
                             <label for="">Design</label>
-                            <input type="text" name="design" value="{{$product->product_design}}">
+                            <input type="text" name="design" value="{{$product->product_design}}" class="form-control">
                         </div>
                         <!-- <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
@@ -106,5 +110,40 @@
                 })
             })
         })
+        function formatCurrency(input) {
+            // Lấy giá trị từ input
+            let value = input.value;
+
+            // Kiểm tra giá trị không phải là rỗng
+            if (value.trim() !== "") {
+                value = value.replace(/[,\.]/g, '');
+
+                let numericValue = parseFloat(value);
+
+                // Sử dụng hàm toLocaleString để định dạng giá trị và gán lại vào input
+                input.value = numericValue.toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
+                });
+
+                input.dataset.decimal = numericValue;
+            }
+        }
+        function getDecimalValue(input) {
+            return parseFloat(input.dataset.decimal);
+        }
+        function formatPrice() {
+
+            let priceDecimal = getDecimalValue(document.getElementById('price'));
+
+            console.log(priceDecimal);
+            // Hiển thị giá trị theo định dạng tiền tệ
+            formatCurrency({
+                value: priceDecimal,
+                input: document.getElementById('price')
+            });
+        }
     </script>
     @endsection
