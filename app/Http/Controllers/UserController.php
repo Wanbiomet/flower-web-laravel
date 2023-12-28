@@ -29,7 +29,7 @@ class UserController extends Controller
         $occasions = Occasion::All();
         $products = Products::all();
         $flowertypes = FlowerType::All();
-        $products = Products::orderBy('created_at', 'desc')->take(4)->get();
+        $products = Products::orderBy('created_at', 'desc')->take(5)->get();
         return view('home.home', compact('occasions', 'flowertypes', 'products'));
     }
     //Register
